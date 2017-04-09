@@ -2,7 +2,7 @@
 
 
 
-> "We now  come to  the decisive step of mathematical abstraction: we forget about wat the symbols stand for, …[The mathematicianl] need not be idle; there are many operations which he may carry out with these symbols, without ever having to look at the things they stand for." 
+> "We now  come to  the decisive step of mathematical abstraction: we forget about wat the symbols stand for, …[The mathematician] need not be idle; there are many operations which he may carry out with these symbols, without ever having to look at the things they stand for." 
 >
 > —— Hermann Weyl，The Mathematical Way of Thinking
 >
