@@ -1,0 +1,21 @@
+#lang racket
+(define (make-monitored f)
+  (let ((count 0))
+    (lambda (message)
+      (cond ((eq? message 'how-many-call?) count)
+            ((eq? message 'reset-count) (set! count 0))
+            (else (begin
+                    (set! count (+ count 1))
+                    (f message)))))))
+
+(define s (make-monitored sqrt))
+(s 100)
+(s 'how-many-call?)
+(s 100)
+(s 'how-many-call?)
+(s 100)
+(s 'how-many-call?)
+(s 100)
+(s 'how-many-call?)
+(s 'reset-count)
+(s 'how-many-call?)
