@@ -41,7 +41,9 @@ An object is said to "have state" if its behavior is influenced by its history.
 
 ### 3.1.1 Local State Variables
 
-`(set! <name> <new-value>)`
+ `(set! <name> <new-value>)`
+
+
 
 ```lisp
 (define balance 100)
@@ -53,10 +55,10 @@ An object is said to "have state" if its behavior is influenced by its history.
 
 ```
 
-在上面 balance 是全局变量，下面改为本地变量。
+在上面 balance 是全局变量，下面为本地变量。
 
 ```lisp
-
+;; 使用 let 实现本地变量
 (define new-withdraw
   (let ((balance 100))
        (lambda (amount)
@@ -75,7 +77,7 @@ Combining `set!` with local variables is the general programming technique we wi
 
 
 ```lisp
-;; 
+;; ; 闭包实现本地变量并设置变量的初始值
 (define (make-withdraw balance)
   (lambda (amount)
           (if (>= balance amount)
@@ -83,6 +85,7 @@ Combining `set!` with local variables is the general programming technique we wi
                      balance)
               "Insufficient funds"))))
 
+;; 多个内部 procedure 共享内部变量 balance
 (define (make-account balance)
   (define (withdraw amount)
     (if (>= balance amount)
@@ -180,7 +183,6 @@ Modify the `make-account`  procedure that it should take a password as an additi
 (define acc (make-account 100 'hello))
 
 ((acc 'hello 'withdraw) 40)
-
 ((acc 'some-other-password 'deposit) 50)
 ```
 
